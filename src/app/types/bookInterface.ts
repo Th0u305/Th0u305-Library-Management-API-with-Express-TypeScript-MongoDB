@@ -1,4 +1,4 @@
-import mongoose, { Document } from "mongoose"
+import { Document, Schema } from "mongoose"
 
 export interface IBook extends Document {
   title: string
@@ -11,4 +11,12 @@ export interface IBook extends Document {
   createdAt: Date
   updatedAt: Date
   updateAvailability(): Promise<void>
+}
+
+export interface IBorrow extends Document {
+  book: Schema.Types.ObjectId
+  quantity: number
+  dueDate: Date
+  createdAt: Date
+  updatedAt: Date
 }

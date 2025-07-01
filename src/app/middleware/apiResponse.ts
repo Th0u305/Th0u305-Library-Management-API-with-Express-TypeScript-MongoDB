@@ -6,7 +6,7 @@ export const errorHandler = (err: any, res: Response, req: Request) => {
     success: false,
     error: {
       name: "ValidationError",
-      errors: err.errors.reduce((acc: any, err: any) => {
+      errors: err?.errors?.reduce((acc: any, err: any) => {
         const path = err?.path?.join(".");
         acc[path] = {
           properties: {

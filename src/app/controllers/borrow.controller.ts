@@ -63,7 +63,7 @@ export const getBorrowedBooksSummary = async (req: Request, res: Response) => {
             title: "$bookDetails.title",
             isbn: "$bookDetails.isbn",
           },
-          totalQuantity: 1,
+          totalQuantity: '$totalQuantity'
         },
       },
   

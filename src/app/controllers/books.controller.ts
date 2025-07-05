@@ -12,9 +12,11 @@ export const getAllBooks = async (req: Request,res: Response, next : NextFunctio
     
     const bookQuery = bookQueryValidation.parse(req.query);
     
-    const { filter, sortBy, sort, limit = 10 } = bookQuery;
+    const { filter, sortBy, sort, limit = 8, page } = bookQuery;
     
+    const skip = (parseInt(page) - 1) * 8;
 
+    
     const query: any = {};
     if (filter) {
       query.genre = filter;
@@ -25,7 +27,7 @@ export const getAllBooks = async (req: Request,res: Response, next : NextFunctio
       sortOptions[sortBy as string] = sort === "desc" ? -1 : 1;
     }
 
-    const books = await Book.find(query).sort(sortOptions).limit(Number(limit));
+    const books = await Book.find(query).sort(sortOptions).skip(skip).limit(Number(limit));
     
     res.status(200).json({
       success: true,

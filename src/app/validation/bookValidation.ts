@@ -20,5 +20,6 @@ export const bookQueryValidation = z.object({
   sortBy: z.string().default("createdAt").optional(),
   sort: z.enum(["asc", "desc"]).default("desc").optional(),
   limit: z.string().optional(),
+  page : z.string().optional().default("1")
 })
 

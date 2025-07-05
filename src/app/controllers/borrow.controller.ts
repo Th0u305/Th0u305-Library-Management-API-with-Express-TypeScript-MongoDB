@@ -19,12 +19,12 @@ export const borrowBook = async (req: Request, res: Response) => {
 
       // Update book copies and availability
       book.copies -= quantity;
-      await book.updateAvailability(); // Using instance method
+      // await book.updateAvailability(); // Using instance method
 
       // Save borrow record
       await borrow.save();
 
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         message: "Book borrowed successfully",
         data: borrow,

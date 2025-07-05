@@ -6,7 +6,7 @@ const GenreEnum = z.enum(["FICTION", "NON_FICTION", "SCIENCE", "HISTORY", "BIOGR
 export const createBookSchema = z.object({
   title: z.string(),
   author: z.string(),
-  genre: GenreEnum,
+  genre: GenreEnum.optional(),
   isbn: z.string(),
   description: z.string().optional(),
   copies: z.number().int().min(0, 'Copies must be a positive number').nonnegative(),

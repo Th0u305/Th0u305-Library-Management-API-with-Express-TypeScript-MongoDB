@@ -83,7 +83,7 @@ export const updateBook = async (req: Request,res: Response,next: NextFunction) 
     if (!book) {
       res.status(404).json({ success: false, message: "Book not found" });
     } else {
-      await book.updateAvailability(); // Using instance method
+      // await book.updateAvailability(); // Using instance method
       res.status(200).json({
         success: true,
         message: "Book updated successfully",

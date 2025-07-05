@@ -8,7 +8,7 @@ const app : Application = express()
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", `${process.env.URL__00}`],
+    origin: ["http://localhost:5173", "https://minimal-library-management.vercel.app"],
     credentials: true,
     optionsSuccessStatus: 200,
   })
